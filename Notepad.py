@@ -29,7 +29,7 @@ import webbrowser as google
 root = Tk()
 root.title('Notepad')
 root.geometry('750x509')
-root.iconbitmap('C:\Vaibhav\CNotepad.ico')
+root.iconbitmap('C:\Vaibhav\CNotepad.ico') # You can delete this 
 
 #-------------------------------------------------------------------------------
 
@@ -42,7 +42,7 @@ selected = False
 #-------------------------------------------------------------------------------
 def say(text):
     engine = pyttsx3.init()
-    engine.say(text)
+    engine.say(text) # You need to pip install pyttsx3. But you can delete this function (say function).
     engine.runAndWait()
 
 def new_file():
@@ -194,8 +194,9 @@ def all_text_color():
         my_text.config(fg=my_color)
 
 def print_file():
-    #printer_name = win32print.GetDefaultPrinter()
+    #printer_name = win32print.GetDefaultPrinter() 
     #status_bar.config(text = printer_name)
+    # ^^^^ those are to tell the default printer set. You must have a default printer set for this function to work.
     file_to_print = filedialog.askopenfilename(initialdir="C:/Vaibhav/Coding/GUI interface with python/Forms/", title="Open File", filetypes=(("Text Files", "*.txt"), ("HTML Files", "*.html"), ("All Files", "*.*")))
 
     if file_to_print:
@@ -205,7 +206,7 @@ def print_file():
 def about_help():
     messagebox.showwarning("Notepad Copyright", "The author of this is Vaibhav Dachavaram. Copyright Protected.")
 
-#
+
 def select_all():
     my_text.tag_add('sel', '1.0', 'end')
 
