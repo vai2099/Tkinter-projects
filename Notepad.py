@@ -17,11 +17,8 @@ from tkinter import messagebox
 #-------------------------------------------------------------------------------
 
 import os, sys
-import win32print
-import win32api
 import sys
 import time
-import pyttsx3
 import webbrowser as google
 
 #-------------------------------------------------------------------------------
@@ -39,10 +36,6 @@ global selected
 selected = False
 
 #-------------------------------------------------------------------------------
-def say(text):
-    engine = pyttsx3.init()
-    engine.say(text)
-    engine.runAndWait()
 
 def new_file():
     my_text.delete("1.0", END)
@@ -57,7 +50,7 @@ def new_file():
 def open_file():
     my_text.delete("1.0", END)
 
-    text_file = filedialog.askopenfilename(initialdir="C:/Vaibhav/Coding/GUI interface with python/Forms/", title="Open File", filetypes=(("Text Files", "*.txt"), ("HTML Files", "*.html"), ("All Files", "*.*")))
+    text_file = filedialog.askopenfilename(initialdir="C:", title="Open File", filetypes=(("Text Files", "*.txt"), ("HTML Files", "*.html"), ("All Files", "*.*")))
 
     if text_file:
         global open_status_name
@@ -75,7 +68,7 @@ def open_file():
     text_file.close()
 
 def save_as_file():
-    text_file = filedialog.asksaveasfilename(defaultextension = ".*", initialdir = "C:/Vaibhav/Coding/GUI interface with python/", title = "Save file as", filetypes=(("Text Files", "*.txt"), ("HTML Files", "*.html"), ("All Files", "*.*")))
+    text_file = filedialog.asksaveasfilename(defaultextension = ".*", initialdir = "C:", title = "Save file as", filetypes=(("Text Files", "*.txt"), ("HTML Files", "*.html"), ("All Files", "*.*")))
     if text_file:
 
         name = text_file
@@ -192,15 +185,6 @@ def all_text_color():
     if my_color:
         my_text.config(fg=my_color)
 
-def print_file():
-    #printer_name = win32print.GetDefaultPrinter()
-    #status_bar.config(text = printer_name)
-    file_to_print = filedialog.askopenfilename(initialdir="C:/Vaibhav/Coding/GUI interface with python/Forms/", title="Open File", filetypes=(("Text Files", "*.txt"), ("HTML Files", "*.html"), ("All Files", "*.*")))
-
-    if file_to_print:
-        messagebox.showinfo("Printing File.", "Press ok to start printing")
-        win32api.ShellExecute(0, "print", file_to_print, None, ".", 0)
-
 def about_help():
     messagebox.showwarning("Notepad Copyright", "The author of this is Vaibhav Dachavaram. Copyright Protected.")
 
@@ -295,8 +279,6 @@ def new_win():
     file_menu.add_cascade(label="Save", command = save_file)
     file_menu.add_cascade(label="Save As", command = save_as_file)
     file_menu.add_separator()
-    file_menu.add_cascade(label="Print file", command = print_file)
-    file_menu.add_separator()
     file_menu.add_cascade(label="Exit", command=root.quit)
 
     edit_menu = Menu(my_menu, tearoff = FALSE)
@@ -381,8 +363,6 @@ file_menu.add_cascade(label="New", command = new_file)
 file_menu.add_cascade(label="Open", command = open_file)
 file_menu.add_cascade(label="Save", command = save_file)
 file_menu.add_cascade(label="Save As", command = save_as_file)
-file_menu.add_separator()
-file_menu.add_cascade(label="Print file", command = print_file)
 file_menu.add_separator()
 file_menu.add_cascade(label="Exit", command=root.quit)
 file_menu.add_separator()
