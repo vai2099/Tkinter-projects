@@ -26,7 +26,7 @@ import webbrowser as google
 root = Tk()
 root.title('Notepad')
 root.geometry('750x509')
-root.iconbitmap('C:\Vaibhav\CNotepad.ico')
+root.iconbitmap('PUT OWN ICON HERE')
 
 #-------------------------------------------------------------------------------
 global open_status_name
