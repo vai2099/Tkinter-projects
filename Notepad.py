@@ -2,10 +2,10 @@
 # Name:        module1
 # Purpose:
 #
-# Author:      vaibhav account
+# Author:      Tkinterpro
 #
 # Created:     22/08/2020
-# Copyright:   (c) vaibhav account 2020
+# Copyright:   (c) Tkinterpro 2020
 # Licence:     <your licence>
 #-------------------------------------------------------------------------------
 from tkinter import *
